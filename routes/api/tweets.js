@@ -10,7 +10,9 @@ const router = express.Router();
 router.get("/", (req, res) => {
   Tweet.find()
     .sort({ createdAt: -1 })
-    .then(tweets => res.json(tweets))
+    .then(tweets => {
+      res.json(tweets);
+    })
     .catch(err => res.status(404).json({ notweetsfound: "No tweets found" }));
 });
 

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const db = require("./config/keys").mongoURI;
 const passport = require("passport");
+const cors = require("cors");
 const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
 
@@ -12,6 +13,7 @@ mongoose
   .catch(err => console.log(err));
 
 const app = express();
+// app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
